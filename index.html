@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Digital India - Your trusted digital solutions partner.">
+<title>Digital India | Digital Solutions</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #6545e8;
+    --secondary: #ff5c93;
+    --dark: #17152b;
+    --light: #f7f5ff;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px #00000010;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--secondary);
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.hero {
+    min-height: 580px;
+    padding: 90px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: linear-gradient(120deg, #e8e0ff, #ffe4ed, #fff2d9);
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: slideIn 1s ease;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 65px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    padding: 14px 28px;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #6545e855;
+}
+
+.hero-art {
+    width: 340px;
+    height: 340px;
+    min-width: 260px;
+    border-radius: 40% 60% 60% 40%;
+    background: linear-gradient(135deg, #6545e8, #ff5c93);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120px;
+    box-shadow: 0 25px 60px #6545e844;
+    animation: float 4s infinite ease-in-out;
+}
+
+section {
+    padding: 80px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #777;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 25px #00000008;
+    transition: .4s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px #6545e822;
+}
+
+.service-card .icon {
+    font-size: 45px;
+    margin-bottom: 18px;
+}
+
+.service-card h3 {
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    color: #777;
+    line-height: 1.7;
+}
+
+.products {
+    background: #eeeaff;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 22px;
+    margin: 5px;
+    border: 1px solid var(--primary);
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .3s;
+    box-shadow: 0 5px 20px #00000010;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+}
+
+.product-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    background: linear-gradient(135deg, #e7dcff, #ffe2ed);
+}
+
+.product-info {
+    padding: 22px;
+}
+
+.product-info h3 {
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    color: #777;
+    line-height: 1.6;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-art {
+    flex: 1;
+    min-height: 300px;
+    background: linear-gradient(135deg, #ffb5cf, #b5a5ff);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+}
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact {
+    background: linear-gradient(120deg, #e9e1ff, #ffe4ed);
+}
+
+.contact-box {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #00000010;
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 17px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 15px;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-box textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.contact-box button {
+    width: 100%;
+    font-size: 16px;
+}
+
+#formMessage {
+    margin-top: 15px;
+    text-align: center;
+    color: green;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+footer a {
+    color: #ff85b1;
+    text-decoration: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media(max-width: 850px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-art {
+        width: 260px;
+        height: 260px;
+        font-size: 90px;
+    }
+
+    .services,
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px 7%;
+        box-shadow: 0 10px 20px #00000010;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    .hero {
+        padding: 65px 5%;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .services,
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 29px;
+    }
+
+    .contact-box {
+        padding: 22px;
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Digital <span>India.</span></div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Welcome to <span>Digital India</span></h1>
+        <p>
+            Empowering businesses with creative digital solutions.
+            Discover innovative technology, smart services and
+            products to grow your business.
+        </p>
+        <a href="#products" class="btn">Explore Products →</a>
+    </div>
+
+    <div class="hero-art">🚀</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-title">
+        <h2>Our Services</h2>
+        <p>Smart solutions for a digital world</p>
+    </div>
+
+    <div class="services">
+        <div class="service-card reveal">
+            <div class="icon">💻</div>
+            <h3>Web Development</h3>
+            <p>Modern and responsive websites for your business.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <div class="icon">📱</div>
+            <h3>Digital Marketing</h3>
+            <p>Grow your brand and reach more customers online.</p>
+        </div>
+
+        <div class="service-card reveal">
+            <div class="icon">🎨</div>
+            <h3>Creative Design</h3>
+            <p>Beautiful designs and branding for your business.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+    <div class="section-title">
+        <h2>Our Products</h2>
+        <p>Explore our featured digital products</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="software">Software</button>
+        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="digital">Digital</button>
+    </div>
+
+    <div class="product-grid">
+
+        <div class="product-card reveal" data-category="software">
+            <div class="product-image">💻</div>
+            <div class="product-info">
+                <h3>Business Software</h3>
+                <p>Smart tools to manage your business.</p>
+            </div>
+        </div>
+
+        <div class="product-card reveal" data-category="design">
+            <div class="product-image">🎨</div>
+            <div class="product-info">
+                <h3>Creative Templates</h3>
+                <p>Professional templates for your brand.</p>
+            </div>
+        </div>
+
+        <div class="product-card reveal" data-category="digital">
+            <div class="product-image">📱</div>
+            <div class="product-info">
+                <h3>Digital Solutions</h3>
+                <p>Digital tools for everyday business needs.</p>
+            </div>
+        </div>
+
+        <div class="product-card reveal" data-category="software">
+            <div class="product-image">⚙️</div>
+            <div class="product-info">
+                <h3>Automation Tools</h3>
+                <p>Save time with smart automation.</p>
+            </div>
+        </div>
+
+        <div class="product-card reveal" data-category="design">
+            <div class="product-image">🖼️</div>
+            <div class="product-info">
+                <h3>Graphic Designs</h3>
+                <p>Eye-catching graphics for your business.</p>
+            </div>
+        </div>
+
+        <div class="product-card reveal" data-category="digital">
+            <div class="product-image">🌐</div>
+            <div class="product-info">
+                <h3>Online Services</h3>
+                <p>Useful digital services in one place.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="about">
+        <div class="about-art reveal">🌟</div>
+
+        <div class="about-content reveal">
+            <h2>About Digital India</h2>
+            <p>
+                Digital India is a creative business concept focused
+                on digital solutions, technology and innovation.
+                We aim to help businesses build their online presence
+                and embrace the digital world.
+            </p>
+            <p>
+                Our mission is to make digital experiences simple,
+                accessible and effective.
+            </p>
+            <a href="#contact" class="btn">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>Have a question? Send us a message.</p>
+    </div>
+
+    <div class="contact-box">
+        <form id="contactForm">
+            <input type="text" id="name"
+                placeholder="Your Name" required>
+
+            <input type="email" id="email"
+                placeholder="Your Email" required>
+
+            <input type="text" id="subject"
+                placeholder="Subject" required>
+
+            <textarea id="message"
+                placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn">
+                Send Message →
+            </button>
+
+            <p id="formMessage" role="status"></p>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h2>Digital India.</h2>
+    <p>Innovate • Create • Grow</p>
+    <p>© <span id="year"></span> Digital India. All Rights Reserved.</p>
+    <p>Designed with ❤️</p>
+</footer>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navbar = document.getElementById("navbar");
+
+menuBtn.addEventListener("click", () => {
+    navbar.classList.toggle("show");
+    menuBtn.textContent =
+        navbar.classList.contains("show") ? "✕" : "☰";
+});
+
+// Close mobile menu after clicking a link
+document.querySelectorAll("#navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+        navbar.classList.remove("show");
+        menuBtn.textContent = "☰";
+    });
+});
+
+// Product filtering
+const filterButtons = document.querySelectorAll(".filter-btn");
+const productCards = document.querySelectorAll(".product-card");
+
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        productCards.forEach(card => {
+            const match =
+                filter === "all" ||
+                card.dataset.category === filter;
+
+            card.style.display = match ? "block" : "none";
+        });
+    });
+});
+
+// Scroll reveal animations
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+// Contact form
+document.getElementById("contactForm")
+.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const formMessage = document.getElementById("formMessage");
+
+    if (!name || !email || !subject || !message) {
+        formMessage.style.color = "red";
+        formMessage.textContent = "Please fill in all fields.";
+        return;
+    }
+
+    formMessage.style.color = "green";
+    formMessage.textContent =
+        "Thank you, " + name +
+        "! Your message has been validated. Please connect a backend to receive it.";
+
+    this.reset();
+});
+
+// Dynamic year
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
